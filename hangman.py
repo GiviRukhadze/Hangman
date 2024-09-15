@@ -139,12 +139,12 @@ def hangman(secret_word):
     '''
     print('Welcome to the game Hangman!')
     print('I am thinking of a word that is', len(secret_word) ,'letters long. ')
-    print('-------------')
     letters_guessed = []
     owe = ['a', 'e', 'i', 'o', 'u']
     gs = 6
     warn = 3
     while gs > 0:
+        print('-----------------------------------------------------------')
         print('You have', gs, 'guesses left. ')
         print('Available letters:', get_available_letters(letters_guessed))
         get2 = get_available_letters(letters_guessed)[:]
@@ -159,7 +159,7 @@ def hangman(secret_word):
                     print('Oops! That is not a valid letter. You have', warn, 'warnings left:')
             else:
                 if warn < 0:
-                    print('Oops! That is not a valid letter.')
+                    print('Oops! You have already guessed that letter.')
                 else:
                     print('Oops! You have already guessed that letter.', warn, 'warnings left:')
             if warn < 0:
@@ -169,7 +169,7 @@ def hangman(secret_word):
             if letters_guessed[len(letters_guessed)-1] in secret_word:
                 print('Good guess:', get_guessed_word(secret_word, letters_guessed))
                 if get_guessed_word(secret_word, letters_guessed) == secret_word:
-                    print('-------------')
+                    print('/////////////////////////////////////////////////////////////')
                     print('Congratulations, you won! ')
                     Tot = gs * uniq(secret_word)
                     return 'Your score is: ' + str(Tot)
@@ -179,7 +179,7 @@ def hangman(secret_word):
                     gs = gs - 2
                 else:
                     gs = gs - 1
-    print('-------------')
+    print('/////////////////////////////////////////////////////////////')
     return 'Sorry, you ran out of guesses. The word was: ' + secret_word
 
 
@@ -271,14 +271,14 @@ def hangman_with_hints(secret_word):
     
     Follows the other limitations detailed in the problem write-up.
     '''
-    print('Welcome to the game Hangman!')
+    print('Welcome to the game Hangman with hints!')
     print('I am thinking of a word that is', len(secret_word) ,'letters long. ')
-    print('-------------')
     letters_guessed = []
     owe = ['a', 'e', 'i', 'o', 'u']
     gs = 6
     warn = 3
     while gs > 0:
+        print('-----------------------------------------------------------')
         print('You have', gs, 'guesses left. ')
         print('Available letters:', get_available_letters(letters_guessed))
         get2 = get_available_letters(letters_guessed)[:]
@@ -295,7 +295,7 @@ def hangman_with_hints(secret_word):
                     print('Oops! That is not a valid letter. You have', warn, 'warnings left:')
             else:
                 if warn < 0:
-                    print('Oops! That is not a valid letter.')
+                    print('Oops! You have already guessed that letter.')
                 else:
                     print('Oops! You have already guessed that letter.', warn, 'warnings left:')
             if warn < 0:
@@ -305,7 +305,7 @@ def hangman_with_hints(secret_word):
             if letters_guessed[len(letters_guessed)-1] in secret_word:
                 print('Good guess:', get_guessed_word(secret_word, letters_guessed))
                 if get_guessed_word(secret_word, letters_guessed) == secret_word:
-                    print('-------------')
+                    print('/////////////////////////////////////////////////////////////')
                     print('Congratulations, you won! ')
                     Tot = gs * uniq(secret_word)
                     return 'Your score is: ' + str(Tot)
@@ -315,7 +315,7 @@ def hangman_with_hints(secret_word):
                     gs = gs - 2
                 else:
                     gs = gs - 1
-    print('-------------')
+    print('/////////////////////////////////////////////////////////////')
     return 'Sorry, you ran out of guesses. The word was: ' + secret_word
 
 
